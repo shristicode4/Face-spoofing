@@ -6,14 +6,14 @@ from tensorflow.keras.models import model_from_json
 
 root_dir = os.getcwd()
 # Load Face Detection Model
-face_cascade = cv2.CascadeClassifier("models/haarcascade_frontalface_default.xml")
+face_cascade = cv2.CascadeClassifier(r"models\haarcascade_frontalface_default.xml")
 # Load Anti-Spoofing Model graph
-json_file = open('antispoofing_models/antispoofing_model.json','r')
+json_file = open(r'pro_antispoofing_model_mobilenet.json','r')
 loaded_model_json = json_file.read()
 json_file.close()
 model = model_from_json(loaded_model_json)
 # load antispoofing model weights 
-model.load_weights('antispoofing_models/antispoofing_model.h5')
+model.load_weights(r'antispoofing_models\antispoofing_model.h5')
 print("Model loaded from disk")
 # video.open("http://192.168.1.101:8080/video")
 # vs = VideoStream(src=0).start()
